@@ -1,0 +1,31 @@
+# Use the official Dev Containers base for Debian
+FROM mcr.microsoft.com/devcontainers/base:debian
+
+# Avoid prompts
+ENV DEBIAN_FRONTEND=noninteractive
+
+# 1) Copy & run your local, editable install.sh
+COPY desktop-lite/install.sh /tmp/install.sh
+RUN chmod +x /tmp/install.sh \
+ && bash    /tmp/install.sh
+
+# 2) Install Chrome & PCManFM
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends \
+      curl xdg-utils pcmanfm fonts-liberation libappindicator3-1 libxss1 libasound2 \
+ && curl -sSL https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+      -o /tmp/chrome.deb \
+ && apt install -y /tmp/chrome.deb || apt --fix-broken install -y \
+ && rm -f /tmp/chrome.deb \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/*
+
+# 3) Expose the noVNC port
+EXPOSE 6080
+
+# 4) Make sure the generated entrypoint is executable
+RUN chmod +x /usr/local/share/desktop-init.sh
+
+# 5) Run the injected desktop-init.sh on container start
+ENTRYPOINT [ "/usr/local/share/desktop-init.sh" ]
+CMD       [ "bash" ]
