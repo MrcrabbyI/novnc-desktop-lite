@@ -1,0 +1,14 @@
+{
+  "name": "Desktop-Lite + Chrome + PCManFM",
+  "build": { "dockerfile": "Dockerfile" },
+  "forwardPorts": [6080],
+  "portsAttributes": {
+    "6080": {
+      "label": "desktop",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "runArgs": ["--shm-size=1g"],
+  "remoteUser": "vscode",
+  "overrideCommand": false
+}
