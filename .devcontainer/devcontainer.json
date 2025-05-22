@@ -1,8 +1,0 @@
-{
-  "name": "Desktop Lite Local",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
-  "forwardPorts": [6080, 5900],
-  "remoteUser": "root"
-}
