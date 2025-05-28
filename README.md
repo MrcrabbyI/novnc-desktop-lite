@@ -11,3 +11,13 @@ instructions:
 chmod +x .devcontainer/desktop-lite
 sudo .devcontainer/desktop-lite/install.sh
 ```
+5. goto the ports tab in terminal
+6. hover over port 6080 and click the globe button
+
+---
+controls
+---
+right click: double finger tap
+left click: tap
+drag: drag
+scroll: right-click-drag
