@@ -30,3 +30,7 @@ RUN chmod +x /usr/local/share/desktop-init.sh
 # 5) Launch the desktop on container start, then drop to bash
 ENTRYPOINT [ "/usr/local/share/desktop-init.sh" ]
 CMD       [ "bash" ]
+
+
+
+# THIS IS NOT USED ANYMORE
