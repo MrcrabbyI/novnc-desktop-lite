@@ -1,14 +1,23 @@
 {
-  "name": "Desktop-Lite + Chrome + PCManFM",
-  "build": { "dockerfile": "Dockerfile" },
+  "name": "Codespace with GUI",
+  "features": {
+    "ghcr.io/devcontainers/features/desktop-lite:1": {
+      "password": "vscode",
+      "webPort": "6080"
+    }
+  },
   "forwardPorts": [6080],
   "portsAttributes": {
     "6080": {
-      "label": "desktop",
-      "onAutoForward": "openBrowser"
+      "label": "desktop"
     }
   },
-  "runArgs": ["--shm-size=1g"],
-  "remoteUser": "vscode",
-  "overrideCommand": false
+  "postCreateCommand": "./postCreateCommand.sh",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  }
 }
