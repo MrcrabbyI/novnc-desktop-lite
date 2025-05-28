@@ -18,6 +18,9 @@ sudo .devcontainer/desktop-lite/install.sh
 controls
 ---
 right click: double finger tap
+
 left click: tap
+
 drag: drag
+
 scroll: right-click-drag
