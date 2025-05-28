@@ -13,11 +13,11 @@ sudo .devcontainer/desktop-lite/install.sh
 ```
 now it is all set up and you only had to do that once<br>
 
-
-
-<br><br>to open the novnc client do these steps in the codespace:<br>
+---
+how to open the vnc client
+---
 5. goto the ports tab in terminal
-<br>6. hover over port 6080 and click the globe button
+<br>6. hover over port 6080 and click the globe button and there you go!
 
 ---
 controls
