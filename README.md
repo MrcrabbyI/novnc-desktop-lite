@@ -17,7 +17,7 @@ sudo .devcontainer/desktop-lite/install.sh
 ---
 controls
 ---
-right click: double finger tap
-left click: tap
-drag: drag
-scroll: right-click-drag
+right click: double finger tap<br>
+left click: tap<br>
+drag: drag<br>
+scroll: right-click-drag<br>
