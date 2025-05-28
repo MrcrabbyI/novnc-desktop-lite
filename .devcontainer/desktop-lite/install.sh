@@ -22,40 +22,29 @@ echo "  - FILE_MANAGER=$FILE_MANAGER"
 echo "  - ARCHITECTURE=$ARCHITECTURE"
 
 # ================================
-# == REAL SETUP BEGINS HERE ==
+# == SETUP ==
 # ================================
 
-# Update packages
+echo "Updating packages..."
 apt-get update
 
-# Install necessary packages for desktop, VNC, noVNC, fluxbox, file manager
-apt-get install -y fluxbox tigervnc-standalone-server tigervnc-common \
-  x11-xserver-utils xterm wget curl net-tools \
-  python3-websockify novnc pcmanfm
-
-# Setup VNC password
-mkdir -p /root/.vnc
-echo "$NOVNC_PASSWORD" | vncpasswd -f > /root/.vnc/passwd
-chmod 600 /root/.vnc/passwd
-
-# Setup noVNC to run on NOVNC_PORT
-# Clone noVNC if not present
-if [ ! -d /opt/noVNC ]; then
-  git clone https://github.com/novnc/noVNC.git /opt/noVNC
+echo "Installing PCManFM (file manager)..."
+if ! command -v pcmanfm >/dev/null 2>&1; then
+  apt-get install -y pcmanfm
+else
+  echo "PCManFM already installed."
 fi
 
-# Run noVNC on the specified port in background
-# (You might want to put this in a systemd service or supervisor in real use)
-nohup /opt/noVNC/utils/novnc_proxy --vnc localhost:$VNC_PORT --listen $NOVNC_PORT &
-
-# install chrome
-if ! command -v google-chrome &> /dev/null; then
+echo "Installing Google Chrome..."
+if ! command -v google-chrome >/dev/null 2>&1; then
   curl -sSL https://dl.google.com/linux/direct/google-chrome-stable_current_${ARCHITECTURE}.deb -o /tmp/chrome.deb
   apt-get install -y /tmp/chrome.deb || apt-get -f install -y
   rm /tmp/chrome.deb
+else
+  echo "Google Chrome already installed."
 fi
 
-# Create ./fluxbox menu to include Chrome and PCManFM
+echo "Setting up Fluxbox menu..."
 mkdir -p /root/.fluxbox
 cat > /root/.fluxbox/menu <<EOF
 [begin] (fluxbox)
