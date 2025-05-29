@@ -6,10 +6,10 @@ instructions:
 1. click the green code button up top
 2. click create codespace
 3. wait until container builds(may take a bit)
-~~4. run these commands in the terminal(just copy the whole thing and paste them): ~~
-```
-~~chmod +x .devcontainer/desktop-lite~~
-~~sudo .devcontainer/desktop-lite/install.sh~~
+<br>~~4. run these commands in the terminal(just copy the whole thing and paste them):~~
+```diff
+-chmod +x .devcontainer/desktop-lite
+-sudo .devcontainer/desktop-lite/install.sh
 ```
 now it is all set up. you only have to do that once.<br>
 
