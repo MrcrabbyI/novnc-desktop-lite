@@ -6,23 +6,23 @@ instructions:
 1. click the green code button up top
 2. click create codespace
 3. wait until container builds(may take a bit)
-4. run these commands in the terminal(just copy the whole thing and paste them): 
+~~4. run these commands in the terminal(just copy the whole thing and paste them): ~~
 ```
-chmod +x .devcontainer/desktop-lite
-sudo .devcontainer/desktop-lite/install.sh
+~~chmod +x .devcontainer/desktop-lite~~
+~~sudo .devcontainer/desktop-lite/install.sh~~
 ```
-now it is all set up and you only had to do that once<br>
+now it is all set up. you only have to do that once.<br>
 
 ---
-how to open the vnc client
+how to open the NoVnc client.
 ---
-5. goto the ports tab in terminal
+5. go to the ports tab in terminal
 6. hover over port 6080 and click the globe button and there you go!
 
 ---
-controls
+controls(mobile)
 ---
-right click: double finger tap<br>
-left click: tap<br>
-drag: drag<br>
-scroll: right-click-drag<br>
+Right Click: double finger tap<br>
+Left Click: tap<br>
+Drag: drag<br>
+Scroll: right-click-drag<br>
