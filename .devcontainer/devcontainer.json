@@ -12,7 +12,7 @@
       "label": "desktop"
     }
   },
-  "postCreateCommand": "chmod +x ./desktop-lite && sudo ./desktop-lite/install.sh",
+  "postCreateCommand": "./desktop-lite/install.sh",
   "customizations": {
     "vscode": {
       "settings": {
