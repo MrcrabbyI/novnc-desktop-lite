@@ -1,3 +1,6 @@
+
+mb guys i broke it so if yiu wanns use this just wait like a day for me to fix it
+
 This is a novnc based applition using desktop-lite and with added chrome and file manager
 
 do what you want w this
