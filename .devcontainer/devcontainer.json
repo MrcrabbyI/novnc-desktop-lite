@@ -12,7 +12,7 @@
       "label": "desktop"
     }
   },
-  "postCreateCommand": "echo 'Running install.sh' && chmod +x ./desktop-lite/install.sh && ./desktop-lite/install.sh",
+  "postStartCommand": "sleep 5 && chmod +x .devcontainer/desktop-lite/install.sh && bash +x .devcontainer/desktop-lite/install.sh",
   "customizations": {
     "vscode": {
       "settings": {
