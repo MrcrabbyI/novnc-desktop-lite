@@ -12,7 +12,6 @@
       "label": "desktop"
     }
   },
-  "postAttachCommand": "chmod +x ${PWD}/.devcontainer/desktop-lite/install.sh && ${PWD}/.devcontainer/desktop-lite/install.sh",
   "customizations": {
     "vscode": {
       "settings": {
