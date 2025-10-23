@@ -1,22 +1,15 @@
 {
-  "name": "Codespace with GUI (Xpra)",
-  "image": "ubuntu:22.04",
+  "name": "Codespace with Xpra GUI",
+  "image": "mcr.microsoft.com/devcontainers/base:jammy",
+
   "features": {
-    "ghcr.io/devcontainers/features/common-utils:2": {},
-    "ghcr.io/linuxserver-labs/features/xpra-desktop:latest": {
-      "password": "vscode",
-      "webPort": "6080"
-    }
+    "ghcr.io/devcontainers/features/common-utils:2": {}
   },
-  "remoteUser": "vscode",
+
   "forwardPorts": [6080],
-  "portsAttributes": {
-    "6080": {
-      "label": "Desktop (Xpra)",
-      "onAutoForward": "openPreview"
-    }
-  },
-  "postStartCommand": "/bin/bash .devcontainer/postStartCommand.sh",
+
+  "postStartCommand": "/workspaces/novnc-desktop-lite/.devcontainer/postStartCommand.sh",
+
   "customizations": {
     "vscode": {
       "settings": {
