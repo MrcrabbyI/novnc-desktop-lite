@@ -28,9 +28,9 @@ git commit -m "Switch to Xpra desktop + auto-start"
 git push
 
 
----
+
 controls(mobile)
----
+
 Right Click: double finger tap<br>
 Left Click: tap<br>
 Drag: drag<br>
