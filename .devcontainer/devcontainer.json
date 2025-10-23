@@ -1,7 +1,10 @@
 {
   "name": "Codespace with GUI (Xpra)",
-  "image": "ghcr.io/linuxserver/xpra:latest",
+  "image": "ubuntu:22.04",
   "remoteUser": "root",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {}
+  },
   "forwardPorts": [6080],
   "portsAttributes": {
     "6080": {
@@ -9,6 +12,7 @@
       "onAutoForward": "openPreview"
     }
   },
+  "postCreateCommand": "apt update && apt install -y xpra fluxbox xterm && apt clean",
   "postStartCommand": "/bin/bash .devcontainer/postStartCommand.sh",
   "customizations": {
     "vscode": {
