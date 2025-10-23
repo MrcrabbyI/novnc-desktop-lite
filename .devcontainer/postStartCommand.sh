@@ -8,7 +8,7 @@ if ! command -v xpra >/dev/null 2>&1; then
     echo "📦 Installing Xpra, Fluxbox, Chrome, and basic tools..."
     apt-get update && apt-get install -y \
         xpra fluxbox xterm \
-        pcmanfm dbus-x11 \
+        pcmanfm \
         wget gnupg2 curl
 
     # Install Google Chrome
@@ -24,16 +24,27 @@ fi
 # 🧹 Kill any existing Xpra sessions to avoid conflicts
 pkill -f xpra || true
 
-# 🖥️ Start Xpra in the background (so Codespace doesn’t freeze)
-xpra start :100 \
+# 🖱️ Create a Fluxbox menu with shortcuts
+mkdir -p ~/.fluxbox
+cat > ~/.fluxbox/menu <<EOF
+[begin] (Xpra Desktop)
+    [exec] (Terminal) {xterm}
+    [exec] (File Manager) {pcmanfm}
+    [exec] (Google Chrome) {google-chrome --no-sandbox}
+    [separator]
+    [exit] (Exit)
+[end]
+EOF
+
+# 🖥️ Start Xpra with web access (no auth)
+xpra start \
   --bind-tcp=0.0.0.0:6080 \
   --html=on \
   --start-child=fluxbox \
   --auth=none \
   --mdns=no \
-  --no-pulseaudio \
-  --daemon=yes &
+  --daemon=no &
 
 echo "✅ Xpra desktop is live at http://localhost:6080"
 echo "📁 File Manager: pcmanfm"
-echo "🌐 Browser: Google Chrome (run 'google-chrome' in terminal)"
+echo "🌐 Browser: Google Chrome (run 'google-chrome --no-sandbox' in terminal)"
