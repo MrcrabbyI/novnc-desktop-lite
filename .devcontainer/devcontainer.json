@@ -1,18 +1,18 @@
 {
-  "name": "Codespace with GUI (Xpra)",
-  "image": "ubuntu:22.04",
-  "remoteUser": "root",
+  "name": "Codespace with GUI (Desktop Lite)",
   "features": {
-    "ghcr.io/devcontainers/features/common-utils:2": {}
+    "ghcr.io/devcontainers/features/desktop-lite:1": {
+      "password": "vscode",
+      "webPort": "6080"
+    }
   },
   "forwardPorts": [6080],
   "portsAttributes": {
     "6080": {
-      "label": "Desktop (Xpra)",
+      "label": "Desktop (noVNC)",
       "onAutoForward": "openPreview"
     }
   },
-  "postCreateCommand": "apt update && apt install -y xpra fluxbox xterm && apt clean",
   "postStartCommand": "/bin/bash .devcontainer/postStartCommand.sh",
   "customizations": {
     "vscode": {
