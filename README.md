@@ -31,7 +31,7 @@ git push
 
 controls(mobile)
 
-Right Click: double finger tap<br>
-Left Click: tap<br>
-Drag: drag<br>
-Scroll: right-click-drag<br>
+Right Click: double finger tap
+Left Click: tap
+Drag: drag
+Scroll: right-click-drag
