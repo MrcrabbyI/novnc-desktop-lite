@@ -1,7 +1,7 @@
 {
   "name": "Codespace with GUI (Xpra)",
   "features": {
-    "ghcr.io/linuxserver-labs/features/xpra-desktop:latest": {
+    "ghcr.io/linuxserver/features/xpra-desktop:1": {
       "password": "vscode",
       "webPort": "6080"
     }
