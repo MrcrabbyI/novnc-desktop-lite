@@ -1,6 +1,7 @@
 {
   "name": "Codespace with GUI (Xpra)",
   "image": "ghcr.io/linuxserver/xpra:latest",
+  "remoteUser": "root",
   "forwardPorts": [6080],
   "portsAttributes": {
     "6080": {
