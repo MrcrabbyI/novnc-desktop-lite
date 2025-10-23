@@ -36,8 +36,9 @@ cat > ~/.fluxbox/menu <<EOF
 [end]
 EOF
 
-# 🖥️ Start Xpra with full web access and no authentication
-xpra start :100 \
+# 🖥️ Start Xpra in background with full web access and no authentication
+echo "🚀 Launching Xpra web server..."
+nohup xpra start :100 \
   --bind-tcp=0.0.0.0:6080 \
   --html=on \
   --start-child=fluxbox \
@@ -45,9 +46,13 @@ xpra start :100 \
   --tcp-auth=none \
   --ws-auth=none \
   --mdns=no \
-  --exit-with-children=yes \
-  --daemon=no &
+  --daemon=yes \
+  --exit-with-children=no \
+  > /tmp/xpra.log 2>&1 &
 
-echo "✅ Xpra desktop is live at http://localhost:6080"
-echo "📁 File Manager: pcmanfm"
-echo "🌐 Browser: Google Chrome (run 'google-chrome --no-sandbox' in terminal)"
+sleep 3
+if pgrep xpra >/dev/null; then
+  echo "✅ Xpra desktop is live at http://localhost:6080"
+else
+  echo "❌ Xpra failed to start. Check /tmp/xpra.log for details."
+fi
