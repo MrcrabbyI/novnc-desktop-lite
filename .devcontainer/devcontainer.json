@@ -1,7 +1,7 @@
 {
-  "name": "Codespace with GUI (Desktop Lite)",
+  "name": "Codespace with GUI (Xpra)",
   "features": {
-    "ghcr.io/devcontainers/features/desktop-lite:1": {
+    "ghcr.io/linuxserver-labs/features/xpra-desktop:latest": {
       "password": "vscode",
       "webPort": "6080"
     }
@@ -9,11 +9,10 @@
   "forwardPorts": [6080],
   "portsAttributes": {
     "6080": {
-      "label": "Desktop (noVNC)",
+      "label": "Desktop (Xpra)",
       "onAutoForward": "openPreview"
     }
   },
-  "postStartCommand": "/bin/bash .devcontainer/postStartCommand.sh",
   "customizations": {
     "vscode": {
       "settings": {
