@@ -8,7 +8,7 @@
 
   "forwardPorts": [6080],
 
-  "postStartCommand": "sudo bash /workspaces/novnc-desktop-lite/.devcontainer/postStartCommand.sh",
+  "postStartCommand": "sudo bash /home/vscode/start-desktop.sh",
 
   "customizations": {
     "vscode": {
