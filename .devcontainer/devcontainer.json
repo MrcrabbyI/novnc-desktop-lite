@@ -1,6 +1,6 @@
 {
   "name": "Codespace with Xpra GUI",
-  "image": "mcr.microsoft.com/devcontainers/base:jammy",
+  "image": "mcr.microsoft.com/devcontainers/base:noble",
 
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {}
