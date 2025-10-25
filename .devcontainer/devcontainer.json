@@ -1,6 +1,6 @@
 {
-  "name": "Codespace with Xpra GUI",
-  "image": "mcr.microsoft.com/devcontainers/base:noble",
+  "name": "Codespace with Xpra 6.4 GUI",
+  "image": "ubuntu:24.04",
 
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {}
@@ -8,7 +8,13 @@
 
   "forwardPorts": [6080],
 
-  "postStartCommand": "bash /workspaces/novnc-desktop-lite/start-desktop.sh",
+  "containerEnv": {
+    "DEBIAN_FRONTEND": "noninteractive"
+  },
+
+  "postCreateCommand": "apt-get update && apt-get install -y --no-install-recommends curl ca-certificates gnupg && curl -fsSL https://xpra.org/gpg.asc | gpg --dearmor -o /usr/share/keyrings/xpra.gpg && echo 'deb [signed-by=/usr/share/keyrings/xpra.gpg] https://xpra.org/ focal main' > /etc/apt/sources.list.d/xpra.list && apt-get update && apt-get install -y xpra xvfb xfce4 novnc xterm && echo 'Xpra installed successfully ✅'",
+
+  "postStartCommand": "xpra start --bind-tcp=0.0.0.0:6080 --html=on --start=xfce4-session --daemon=no",
 
   "customizations": {
     "vscode": {
