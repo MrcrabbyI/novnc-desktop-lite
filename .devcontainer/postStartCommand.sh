@@ -54,20 +54,19 @@ EOF
 echo "🚀 Launching Xpra web server (no auth)..."
 xpra start :100 \
   --bind-tcp=0.0.0.0:6080 \
-  --start-child="$HOME/.fluxbox/startup" \
   --html=on \
+  --start=fluxbox \
   --auth=none \
   --tcp-auth=none \
   --ws-auth=none \
-  --mdns=no \
-  --ssl=off \
   --no-daemon \
+  --no-mdns \
+  --no-ssl \
   --exit-with-children=yes \
+  --bind-tcp=0.0.0.0:14500,auth=none \
+  --bind-ws=0.0.0.0:14501,auth=none \
   --sharing=yes \
-  --notifications=no \
   --bell=no \
-  --clipboard=yes \
-  --dbus=no \
-  --systemd-run=no
+  --notifications=no &
 
 echo "✅ Xpra desktop running at: http://localhost:6080"
