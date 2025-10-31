@@ -54,28 +54,24 @@ exec fluxbox
 EOF
 chmod +x ~/.fluxbox/startup
 
-# 🖥️ Start Xpra web desktop (no auth + no SSL)
+# 🖥️ Start Xpra web desktop (no auth)
 echo "🚀 Launching Xpra web server..."
 xpra start :100 \
   --bind-tcp=0.0.0.0:6080 \
   --html=on \
-  --start-child="bash -c '~/.fluxbox/startup'" \
-  --auth=none \
+  --start-child="bash -c '$HOME/.fluxbox/startup'" \
   --tcp-auth=none \
-  --ws-auth=none \
-  --ssl=off \
-  --no-mdns \
+  --mdns=no \
   --no-daemon \
   --exit-with-children=yes \
-  --compression=off \
+  --ssl=off \
   --sharing=yes \
-  --bell=no \
   --notifications=no \
+  --bell=no \
   --clipboard=yes \
-  --webcam=no \
-  --speaker=off \
-  --microphone=off \
-  --no-password &
+  --printing=no \
+  --dbus=no \
+  --systemd-run=no
 
 echo "✅ Xpra desktop ready at http://localhost:6080"
 echo "💡 Right-click the background for Fluxbox menu."
