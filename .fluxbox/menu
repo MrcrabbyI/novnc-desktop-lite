@@ -1,0 +1,8 @@
+[begin] (Xpra Desktop)
+    [exec] (Terminal) {xterm}
+    [exec] (File Manager) {pcmanfm}
+    [exec] (Google Chrome) {google-chrome --no-sandbox}
+    [exec] (Text Editor) {mousepad}
+    [separator]
+    [exit] (Exit)
+[end]
