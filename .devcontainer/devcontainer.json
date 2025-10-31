@@ -1,5 +1,5 @@
 {
-  "name": "Codespace with Xpra 6.4 GUI",
+  "name": "Codespace with Xpra 6.3+ GUI",
   "image": "ubuntu:24.04",
 
   "features": {
@@ -12,9 +12,10 @@
     "DEBIAN_FRONTEND": "noninteractive"
   },
 
-  "postCreateCommand": "apt-get update && apt-get install -y --no-install-recommends curl ca-certificates gnupg && curl -fsSL https://xpra.org/gpg.asc | gpg --dearmor -o /usr/share/keyrings/xpra.gpg && echo 'deb [signed-by=/usr/share/keyrings/xpra.gpg] https://xpra.org/ noble main' > /etc/apt/sources.list.d/xpra.list && apt-get update && apt-get install -y xpra fluxbox xvfb novnc xterm pcmanfm mousepad wget gnupg2 curl && echo '✅ Xpra 6.4 + Fluxbox desktop tools installed'",
+  "postCreateCommand": "apt-get update && apt-get install -y --no-install-recommends curl ca-certificates gnupg && curl -fsSL https://xpra.org/gpg.asc | gpg --dearmor -o /usr/share/keyrings/xpra.gpg && echo 'deb [signed-by=/usr/share/keyrings/xpra.gpg] https://xpra.org/ noble main' > /etc/apt/sources.list.d/xpra.list && apt-get update && apt-get install -y xpra xvfb fluxbox novnc xterm pcmanfm mousepad && echo '✅ Xpra 6.3+ and desktop tools installed'",
 
-  "postStartCommand": "bash /workspaces/$(basename $PWD)/postStartCommand.sh",
+  "postStartCommand": "bash /workspaces/$(basename $PWD)/.devcontainer/postStartCommand.sh"
+,
 
   "customizations": {
     "vscode": {
