@@ -12,9 +12,9 @@
     "DEBIAN_FRONTEND": "noninteractive"
   },
 
-  "postCreateCommand": "apt-get update && apt-get install -y --no-install-recommends curl ca-certificates gnupg && curl -fsSL https://xpra.org/gpg.asc | gpg --dearmor -o /usr/share/keyrings/xpra.gpg && echo 'deb [signed-by=/usr/share/keyrings/xpra.gpg] https://xpra.org/ focal main' > /etc/apt/sources.list.d/xpra.list && apt-get update && apt-get install -y xpra xvfb xfce4 novnc xterm && echo 'Xpra installed successfully ✅'",
+  "postCreateCommand": "apt-get update && apt-get install -y --no-install-recommends curl ca-certificates gnupg && curl -fsSL https://xpra.org/gpg.asc | gpg --dearmor -o /usr/share/keyrings/xpra.gpg && echo 'deb [signed-by=/usr/share/keyrings/xpra.gpg] https://xpra.org/ noble main' > /etc/apt/sources.list.d/xpra.list && apt-get update && apt-get install -y xpra fluxbox xvfb novnc xterm pcmanfm mousepad wget gnupg2 curl && echo '✅ Xpra 6.4 + Fluxbox desktop tools installed'",
 
-  "postStartCommand": "xpra start --bind-tcp=0.0.0.0:6080 --html=on --start=xfce4-session --daemon=no",
+  "postStartCommand": "bash /workspaces/$(basename $PWD)/postStartCommand.sh",
 
   "customizations": {
     "vscode": {
