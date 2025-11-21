@@ -1,37 +1,28 @@
-# 🖥️ Xpra Desktop for GitHub Codespaces
+This is a novnc based applition using desktop-lite and with added chrome and file manager
 
-This is an **Xpra-based desktop environment** for GitHub Codespaces.  
-It includes a **browser (Google Chrome)**, **file manager**, and a full Linux GUI.  
-You can run lightweight desktop apps and even small games (no GPU required).  
-✅ Smooth mouse tracking — no more spinning or stuck camera like with noVNC!
+do what you want w this
 
----
-
-## 🚀 Quick Setup
-
-1. Click the **green “Code”** button at the top of this repository.  
-2. Click **“Create Codespace on main”**.  
-3. Wait for the container to build (this may take a few minutes).
-
-Once it’s done, you’ll have a fully functional GUI in your Codespace.
+instructions:
+1. click the green code button up top
+2. click create codespace
+3. wait until container builds(may take a bit)
+4. run these commands in the terminal(just copy the whole thing and paste them):
+```diff
+chmod +x .devcontainer/desktop-lite
+sudo .devcontainer/desktop-lite/install.sh
+```
+now it is all set up. you only have to do that once.<br>
 
 ---
+how to open the NoVnc client.
+---
+5. go to the ports tab in terminal
+6. hover over port 6080 and click the globe button and there you go!
 
-## 🧩 One-Time Setup Commands
-
-Run these commands in the terminal **inside your Codespace**:
-
-```bash
-chmod +x .devcontainer/postStartCommand.sh
-git add .devcontainer
-git commit -m "Switch to Xpra desktop + auto-start"
-git push
-
-
-
+---
 controls(mobile)
-
-Right Click: double finger tap
-Left Click: tap
-Drag: drag
-Scroll: right-click-drag
+---
+Right Click: double finger tap<br>
+Left Click: tap<br>
+Drag: drag<br>
+Scroll: right-click-drag<br>
