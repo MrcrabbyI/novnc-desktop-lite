@@ -1,4 +1,0 @@
-#!/bin/bash
-fbsetbg -solid '#2B2B2B'
-pcmanfm --desktop &
-exec fluxbox
