@@ -9,15 +9,16 @@
   "forwardPorts": [6080],
   "portsAttributes": {
     "6080": {
-      "label": "desktop"
+      "label": "Desktop (noVNC)",
+      "onAutoForward": "openPreview"
     }
   },
+  "postStartCommand": "sudo /usr/local/share/desktop-init &",
   "customizations": {
     "vscode": {
       "settings": {
         "terminal.integrated.defaultProfile.linux": "bash"
       }
     }
-  },
-  "postStartCommand": "bash .devcontainer/postStartCommand.sh"
+  }
 }
