@@ -10,6 +10,7 @@ instructions:
 ```diff
 chmod +x .devcontainer/desktop-lite
 sudo .devcontainer/desktop-lite/install.sh
+chmod +x .devcontainer/postStartCommand.sh
 ```
 now it is all set up. you only have to do that once.<br>
 
